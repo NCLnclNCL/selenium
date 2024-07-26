@@ -154,14 +154,11 @@ jobs:
         with:
           limit-access-to-actor: false
       - name: Release Nightly
-        if: inputs.nightly-release-files != ''
-        uses: marvinpinto/action-automatic-releases@latest
+        uses: actions/upload-artifact@v4
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "nightly"
-          title: "Nightly"
-          prerelease: true
-          files: ${{ inputs.nightly-release-files }}
+          name: ${{ inputs.artifact-name }}
+          path: inputs.nightly-release-files
+          retention-days: 6
       - name: Save changes
         #if: ${{ always() && inputs.artifact-name != 'ignore-artifacts' }}
         run: |
