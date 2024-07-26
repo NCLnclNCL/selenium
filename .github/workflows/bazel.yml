@@ -168,5 +168,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: changes.patch
-          retention-days: 6
+          path: D:\_bazel\execroot\_main\support-pack-working-dir\bin\Debug\Selenium.Support.4.23.0.snupkg
