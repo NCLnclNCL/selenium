@@ -163,7 +163,7 @@ jobs:
           prerelease: true
           files: ${{ inputs.nightly-release-files }}
       - name: Save changes
-        if: ${{ always() && inputs.artifact-name != 'ignore-artifacts' }}
+        #if: ${{ always() && inputs.artifact-name != 'ignore-artifacts' }}
         run: |
           git diff > changes.patch
       - name: "Upload changes"
