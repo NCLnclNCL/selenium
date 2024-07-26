@@ -168,4 +168,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: D:\_bazel\execroot\_main\support-pack-working-dir\bin\Debug\Selenium.Support.4.23.0.snupkg
+          path: D:\_bazel\execroot\_main\webdriver-pack-working-dir\bin\Debug\Selenium.WebDriver.4.23.0.nupkg
