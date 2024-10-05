@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace OpenQA.Selenium.DevTools
 {
-    using CurrentCdpVersion = V127;
+    using CurrentCdpVersion = V129;
 
     [TestFixture]
-    [IgnoreBrowser(Selenium.Browser.Edge, "While CDP 127 is released for Edge")]
     public class DevToolsNetworkTest : DevToolsTestFixture
     {
         [Test]
@@ -387,9 +386,10 @@ namespace OpenQA.Selenium.DevTools
                 if (string.Compare(e.Request.Method, "post", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     requestIds[0] = e.RequestId;
+                    requestSync.Set();
                 }
-                requestSync.Set();
             };
+
             domains.Network.RequestWillBeSent += requestWillBeSentHandler;
 
             driver.Url = EnvironmentManager.Instance.UrlBuilder.WhereIs("postForm.html");
